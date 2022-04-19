@@ -9,6 +9,8 @@
   "author": "Siddarath Kumar",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.6.0"
+    "discord.js": "^13.6.0",
+    "yt-search": "^2.10.3",
+    "ytdl-core": "^4.11.0"
   }
 }
