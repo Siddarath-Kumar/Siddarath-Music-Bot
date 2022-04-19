@@ -1,6 +1,6 @@
 const Discord = require('discord.js'); // get const discord to communicate with the node modules
 
-const client = new Discord.Client({intents:["GUILDS", "GUILD_MESSAGES"]}); // creating the discord bot as a client
+const client = new Discord.Client({intents:["GUILDS", "GUILD_MESSAGES", "GUILD_VOICE_STATES"]}); // creating the discord bot as a client
 
 const prefix = '!'; // Assigning the bots prefix for the commands
 
@@ -32,18 +32,15 @@ client.on('message', message=>
     const args = message.content.slice(prefix.length).split("/ +/"); // splicing to enable space between commands
     const command = args.shift().toLowerCase();
 
-    if(command === 'ping')
+    if(command === 'play')
     {
-        client.commands.get('ping').execute(message, args);
+        client.commands.get('play').execute(message, args);
     }
-    else if (command == 'music')
+    else if (command == 'leave')
     {
-        client.commands.get('music').execute(message, args);
+        client.commands.get('leave').execute(message, args);
     }
-    else if(command == 'help')
-    {
-        client.commands.get('help').execute(message, args);
-    }
+   
 });
 
 
