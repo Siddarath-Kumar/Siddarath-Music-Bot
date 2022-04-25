@@ -36,7 +36,9 @@ module.exports =
                 return interaction.editReply("You are required to be in a voice channel to run this command!")
             }
 
-            const queue = await client.player.createQueue(interaction.guild)
+            const queue = await client.player.createQueue(interaction.guild) // creates queue objects and store it in variable and is used to check if a queue exists
+            const queuePlaying = client.player.getQueue(interaction.guildId) // get the queue object and store it in a variable and is used to check if the queue is playing
+
             if(!queue.connection)
             {
                 await queue.connect(interaction.member.voice.channel) // connects to the vc the member is in
@@ -67,6 +69,13 @@ module.exports =
                     .setDescription(`**[${song.title}](${song.url})** has been added to the queue!`)
                     .setThumbnail(song.thumbnail)
                     .setFooter({ text: `Duration: ${song.duration}`})
+                
+                if(queuePlaying)
+                {
+                    await interaction.editReply({
+                        embeds: [embed] // display the embeds of the information
+                    })
+                }
 
             }
             else if(interaction.options.getSubcommand() === "playlist")
@@ -91,6 +100,13 @@ module.exports =
                 embed   
                     .setDescription(`**${searchResult.tracks.length} songs from [${playlist.title}](${playlist.url})** have been added to the queue!`)
                     .setThumbnail(playlist.thumbnail)
+
+                if(queuePlaying)
+                {
+                    await interaction.editReply({
+                        embeds: [embed] // display the embeds of the information
+                    })
+                }
             }
             else if (interaction.options.getSubcommand() === "search")
             {
@@ -115,6 +131,13 @@ module.exports =
                     .setDescription(`**[${song.title}](${song.url})** has been added to the queue!`)
                     .setThumbnail(song.thumbnail)
                     .setFooter({ text: `Duration: ${song.duration}`})
+
+                if(queuePlaying)
+                {
+                    await interaction.editReply({
+                        embeds: [embed] // display the embeds of the information
+                    })
+                }
             }
 
             if(!queue.playing) // if the song queue is not playing
