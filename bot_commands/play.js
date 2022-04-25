@@ -60,13 +60,13 @@ module.exports =
                     return interaction.editReply("No results for the video was found!")
                 }
 
-                const currentSong = searchResult.tracks[0]
-                await queue.addTrack(currentSong)
+                const song = searchResult.tracks[0]
+                await queue.addTrack(song)
 
                 embed   
-                    .setDescription(`**[${currentSong.title}](${currentSong.url})** has been added to the queue!`)
-                    .setThumbnail(currentSong.thumnail)
-                    .setFooter({ text: `Duration: ${currentSong.duration}`})
+                    .setDescription(`**[${song.title}](${song.url})** has been added to the queue!`)
+                    .setThumbnail(song.thumbnail)
+                    .setFooter({ text: `Duration: ${song.duration}`})
 
             }
             else if(interaction.options.getSubcommand() === "playlist")
@@ -90,7 +90,7 @@ module.exports =
 
                 embed   
                     .setDescription(`**${searchResult.tracks.length} songs from [${playlist.title}](${playlist.url})** have been added to the queue!`)
-                    .setThumbnail(playlist.thumnail)
+                    .setThumbnail(playlist.thumbnail)
             }
             else if (interaction.options.getSubcommand() === "search")
             {
@@ -108,13 +108,13 @@ module.exports =
                     return interaction.editReply("No results for the video was found!")
                 }
 
-                const currentSong = searchResult.tracks[0]
-                await queue.addTrack(currentSong)
+                const song = searchResult.tracks[0]
+                await queue.addTrack(song)
 
                 embed   
-                    .setDescription(`**[${currentSong.title}](${currentSong.url})** has been added to the queue!`)
-                    .setThumbnail(currentSong.thumnail)
-                    .setFooter({ text: `Duration: ${currentSong.duration}`})
+                    .setDescription(`**[${song.title}](${song.url})** has been added to the queue!`)
+                    .setThumbnail(song.thumbnail)
+                    .setFooter({ text: `Duration: ${song.duration}`})
             }
 
             if(!queue.playing) // if the song queue is not playing

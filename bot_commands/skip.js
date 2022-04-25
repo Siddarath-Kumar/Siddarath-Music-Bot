@@ -18,7 +18,7 @@ module.exports=
 
             const currentSong = queue.current
 
-            queue.skips() // skips the current song and play the next in queue
+            queue.skip() // skips the current song and play the next in queue
             await interaction.editReply( // outputs an embed message that the current song has been skipped
             {
                 embeds: 

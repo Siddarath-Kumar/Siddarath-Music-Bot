@@ -18,7 +18,7 @@ module.exports=
                 return await interaction.editReply("Currently there are no songs in the queue!")
             }
 
-            const trackNumb = interaction.options.getNumber("trackNumber") // initalise the track number
+            const trackNumb = interaction.options.getNumber("tracknumber") // initalise the track number
 
             // checks is the user enters a valid track number
             if(trackNumb > queue.tracks.length)
@@ -27,7 +27,7 @@ module.exports=
             }
 
             queue.skipTo(trackNumb - 1) // skips the current song and goes directly to the track number provided
-            await interaction.editReply(`Song has been skiped to track number ${trackNum}`) // ouputs message stating track has been successfully skipped to
+            await interaction.editReply(`Song has been skiped to track number ${trackNumb}`) // ouputs message stating track has been successfully skipped to
         }
 
 }
