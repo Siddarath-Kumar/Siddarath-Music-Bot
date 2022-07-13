@@ -5,7 +5,7 @@ module.exports=
 {
     data: new SlashCommandBuilder()
         .setName("info")
-        .setDescription("Displays details about the song that is currently playin!g"),
+        .setDescription("Displays details about the song that is currently playing"),
 
         run: async ({client, interaction}) =>
         {

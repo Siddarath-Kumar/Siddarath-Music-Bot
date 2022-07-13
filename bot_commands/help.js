@@ -14,7 +14,7 @@ module.exports=
             embed
                 .setColor('#304281')
                 .setTitle('Music Bot Help Commands')
-                .setDescription('The following is the music bot commands!')
+                .setDescription('The following is the music bot commands for Sids-Music-Bot!')
                 .setThumbnail('https://cdn.pixabay.com/photo/2017/05/09/10/03/music-2297759_1280.png')
                 .addFields
                 (
